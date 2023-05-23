@@ -6,10 +6,11 @@ const emailrout=require("./routes/emailRoutes")
 app.use(cors());
 app.use(express.json());
 app.use("/api",emailrout)
+require('dotenv').config()
 
 mongoose
   .connect(
-    "mongodb+srv://suraj:fxdx-suraj@cluster0.yyzhu2n.mongodb.net/?retryWrites=true&w=majority",
+    process.env['MONGO_URL'],
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
